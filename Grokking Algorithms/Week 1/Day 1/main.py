@@ -55,6 +55,17 @@ def binary_search(arr, item):
 # •  Algorithm times are written in big O notation
 
 # Linked List & Arrays
+
+# In Python a basic linked list looks like this:
+class Node:
+ def __init__(self, value):
+    self.value = value
+    self.next = None
+# Build a short linked list: 10 → 20 → 30
+head = Node(10)
+head.next = Node(20)
+head.next.next = Node(30)
+
 # Suppose you’re building an app to keep track of your finances. 
  
 # Every day, you write down everything you spent money on. At the 
