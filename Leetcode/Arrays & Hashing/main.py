@@ -135,7 +135,7 @@ def topKFrequent(nums: List[int], k: int) -> List[int]:
     count = {}
 
     for num in nums:
-        count[num] = count.get(num, 0) + 1\
+        count[num] = count.get(num, 0) + 1
 
     arr = []
     for num, cnt in count.items():
@@ -143,7 +143,8 @@ def topKFrequent(nums: List[int], k: int) -> List[int]:
     arr.sort()
 
     res = []
-    while res < k:
+    while len(res) < k:
         res.append(arr.pop()[1])
-
     return res
+
+# Bucket Sort
