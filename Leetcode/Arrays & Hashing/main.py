@@ -1,7 +1,7 @@
-# https://leetcode.com/problems/two-sum/
 from typing import List
 from collections import defaultdict
 
+# https://leetcode.com/problems/two-sum/
 # Brute force:
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
