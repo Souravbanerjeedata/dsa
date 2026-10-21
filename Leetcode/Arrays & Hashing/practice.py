@@ -71,3 +71,36 @@ def maxProfit2(prices):
             left = right
         right += 1
     return maxProfit
+
+## Valid Anagram
+
+# sorting: Time complexity: O(nlog⁡n+mlog⁡m), Space complexity: O(1) or O(n+m) depending on the sorting algorithm.
+
+def isAnagram(s,t):
+    if len(s) != len(t):
+        return False
+
+    return sorted(s) == sorted(t)
+
+# Hash map: Time complexity: O(n+m), Space complexity: O(1)
+
+def isAnagram1(s,t):
+    if len(s) != len(t):
+        return False
+    countS, countT = {}, {}
+    for i in range(len(s)):
+        countS[s[i]] = 1 + countS.get(s[i], 0)
+        countT[t[i]] = 1 + countT.get(t[i], 0)
+    return countS == countT
+
+## Group Anagrams
+
+# sorting: Time complexity: O(m∗nlogn), Space complexity: O(m∗n)
+
+def groupAnagrams1(strs):
+    res = defaultdict(list)
+    for s in strs:
+        sortedS = ''.join(sorted(s))
+        res[sortedS].append(s)
+    return list(res.values())
+
