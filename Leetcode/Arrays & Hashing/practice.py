@@ -100,7 +100,19 @@ def isAnagram1(s,t):
 def groupAnagrams1(strs):
     res = defaultdict(list)
     for s in strs:
-        sortedS = ''.join(sorted(s))
-        res[sortedS].append(s)
+        key = "".join(sorted(s))
+        res[key].append(s)
     return list(res.values())
 
+# hash map: Time complexity: O(m∗n), Space complexity:O(m) auxiliary space, excluding the returned output. O(m∗n) total space if the output groups are counted.
+
+def groupAnagrams2(strs):
+    res = defaultdict(list)
+    for s in strs:
+        key = [0] * 26
+        for c in s:
+            key[ord(c) - ord('a')] += 1
+        res[tuple(key)].append(s)
+    return list(res.values())
+
+## Top K Frequent Elements
