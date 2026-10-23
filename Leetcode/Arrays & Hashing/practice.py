@@ -116,3 +116,36 @@ def groupAnagrams2(strs):
     return list(res.values())
 
 ## Top K Frequent Elements
+# sorting: Time complexity: O(nlog⁡n), Space complexity: O(n)
+def topKFrequent1(nums, k):
+    count = {}
+    for num in nums:
+        count[num] = 1 + count.get(num, 0)
+
+    arr = []
+    for num, freq in count.items():
+        arr.append([freq, num])
+    arr.sort()
+
+    res = []
+    while len(res) < k:
+        res.append(arr.pop()[1])
+    return res
+
+# bucket sort: Time complexity: O(n), Space complexity: O(n)
+def topKFrequent2(nums,k):
+        count = {}
+        freq = [[] for _ in range(len(nums) + 1)]
+
+        for num in nums:
+            count[num] = 1 + count.get(num, 0)
+        for num, cnt in count.items():
+            freq[cnt].append(num)
+        
+        res = []
+        for i in range(len(freq) - 1, 0, -1):
+            for num in freq[i]:
+                res.append(num)
+                if len(res) == k:
+                    return res
+        return res
